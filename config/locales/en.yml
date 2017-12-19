@@ -1,0 +1,22 @@
+---
+en:
+  active_admin:
+    dashboard: Dashboard
+    dashboard_welcome:
+      call_to_action: Call to action
+      welcome: Welcome
+  hello: Hello world
+  passport:
+    logout: Logout
+    search: 'Search:'
+    title: DG4 PASSPORT MANAGEMENT SYSTEM
+  table:
+    Dob: Dob
+    Email: Email
+    EmployeeID: EmployeeID
+    ExpireDate: ExpireDate
+    IssueDate: IssueDate
+    Name: Name
+    NewPassport: NewPassport
+    Passport: Passport
+    Project: Project

@@ -1,0 +1,32 @@
+if ('<%= @passport.errors.empty? %>'=='false') {
+    // validation employeeId
+     if('<%= @passport.errors.full_messages_for(:employeeId).empty? %>' == 'false') {
+        $('.errors-employee').text('<%= @passport.errors.full_messages %>'.replace(/&quot;/g, ' '));
+     }
+
+    // validation passport
+    if('<%= @passport.errors.full_messages_for(:passport).empty? %>' == 'false') {
+        $('.errors-passport').text('<%= @passport.errors.full_messages %>'.replace(/&quot;/g, ' '));
+    }
+
+} else {
+
+    var html_table = "<tr id='passport_<%= @passport.id %>'>"+
+                    "<td><%= @passport.employeeId %></td>" +
+                    "<td><%= @passport.name %></td>" +
+                    "<td><%= @passport.dob %></td>" +
+                    "<td><%= @passport.email %></td>" +
+                    "<td><%= @passport.project %></td>" +
+                    "<td><%= @passport.passport %></td>" +
+                    "<td><%= @passport.issue %></td>" +
+                    "<td><%= @passport.expire %></td>" +
+                    "<td class='center-text'>" +
+                        '<a data-remote="true" href="/passports/<%= @passport.id %>/edit"><i class="fa fa-pencil-square-o padding-right"></i></a>' +
+                    "<%=j link_to '<i class="fa fa-trash-o"></i>'.html_safe, @passport, method: :delete, remote: true, data: { confirm: 'Are you sure?' } %></td>"+
+                  "</tr>";
+
+    $('#link_new').show();
+    $('#passport_table').prepend(html_table);
+    $('#message-notice').text('Create Successfully').addClass('notice-success').delay(1000).fadeOut(300);;//alert notification
+    $(".modal-contain").hide();
+}

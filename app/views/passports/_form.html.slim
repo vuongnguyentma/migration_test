@@ -1,0 +1,30 @@
+h5.title-form.white.fa.fa-plus
+  .title-form-text
+  	= @title
+  div.padding-form
+    h6
+      | Employee Information
+
+	= bootstrap_form_for(@passport, remote: true) do |f|
+	  .row
+	    .col-md-6
+	      = f.number_field :employeeId, hide_label: true,readonly: @disable, class: @readonly_class, placeholder: "Employee ID........", required: true, autofocus: true
+	  	  span.errors.errors-employee
+	    .col-md-6
+	      = f.text_field :dob, hide_label: true, readonly: true, class: "datepicker", placeholder: "DoB"
+	  = f.text_field :name, hide_label: true, placeholder: "Full name........", required: true
+	  = f.email_field :email, hide_label: true, placeholder: "Email...", required: true
+	  = f.text_field :project, hide_label: true, placeholder: "Project..."
+	  h6
+	    | Passport Information
+	  = f.text_field :passport, hide_label: true, placeholder: "Passport..."
+	  span.errors.errors-passport
+	  .row
+	    .col-md-6
+	      = f.text_field :issue, hide_label: true, readonly: true, class: "datepicker1", placeholder: "Issue date..."
+	    .col-md-6
+	  	  = f.text_field :expire, hide_label: true, id: "expiredate", class: "read_only", readonly: true, placeholder: "Expire date..."
+	  span.padding-right
+		= f.submit "Save", class: "btn btn-success"
+	  span
+		= link_to "Cancel", "#", class: "btn btn-success cancel-btn", id: "btn-cancel"

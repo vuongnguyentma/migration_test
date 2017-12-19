@@ -1,0 +1,27 @@
+.col-md-7
+  .login-contain  
+    h2
+      | Change your password
+    = bootstrap_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f|
+      = devise_error_messages!
+      = f.hidden_field :reset_password_token
+      .field
+        = f.label :password, "New password", hide_label: true
+        br
+        - if @minimum_password_length
+          em
+            | (
+            = @minimum_password_length
+            |  characters minimum)
+          br
+        = f.password_field :password, autofocus: true, autocomplete: "off", hide_label: true
+        = f.label :password_confirmation, "Confirm new password"
+        = f.password_field :password_confirmation, autocomplete: "off", hide_label: true
+
+        = f.submit "Change my password"
+    = render "users/shared/links"
+.col-md-1
+  .line-dive
+.col-md-4
+  .logo-dg4
+    img src="../assets/logo.png"

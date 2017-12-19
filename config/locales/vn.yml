@@ -1,0 +1,22 @@
+---
+vn:
+  active_admin:
+    dashboard: Dashboard
+    dashboard_welcome:
+      call_to_action: Call to action
+      welcome: Welcome
+  hello: Hello world
+  passport:
+    logout: Đăng xuất
+    search: 'Tìm kiếm:'
+    title: ỨNG DỤNG QUẢN LÍ PASSPORT DG4
+  table:
+    Dob: Ngày sinh
+    Email: Email
+    EmployeeID: Mã nhân viên
+    ExpireDate: Ngày hết hạn
+    IssueDate: Ngày mở
+    Name: Họ tên
+    NewPassport: Thêm mới
+    Passport: Passport
+    Project: Dự án

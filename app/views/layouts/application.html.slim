@@ -1,0 +1,26 @@
+doctype html
+html[lang="en"]
+  head
+    meta[charset="utf-8"]
+    meta[content="width=device-width, initial-scale=1" name="viewport"]
+    meta[content="IE=edge" http-equiv="X-UA-Compatible"]
+
+    title
+      | PassportManagement
+      
+    = csrf_meta_tags
+    
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag "passports"
+    = stylesheet_link_tag "pagination"
+
+    = javascript_include_tag 'application'
+
+  body
+    .row
+      .col-md-12.modal-contain
+        div.modal-black
+        div#modal-window
+    = yield
+    #message-notice
+    

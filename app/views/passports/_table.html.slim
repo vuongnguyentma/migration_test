@@ -1,0 +1,50 @@
+table#passport_table.table.table-striped.table-hover
+  thead
+    tr
+      th
+        = t "table.EmployeeID"
+      th
+        = t "table.Name"
+      th
+        = t "table.Dob"
+      th
+        = t "table.Email"
+      th
+        = t "table.Project"
+      th
+        = t "table.Passport"
+      th
+        = t "table.IssueDate"
+      th
+        = t "table.ExpireDate"
+      th
+        = link_to new_passport_path, id: "link_new", remote: true do
+          = t "table.NewPassport "
+          i.fa.fa-plus
+            
+  tbody#content
+    - @passports.each do |passport|
+      |  <tr id="passport_
+      = passport.id
+      | ">
+      td
+        = passport.employeeId 
+      td
+        = passport.name
+      td
+        = passport.dob
+      td
+        = passport.email
+      td
+        = passport.project
+      td
+        = passport.passport
+      td
+        = passport.issue
+      td
+        = passport.expire
+      td.center-text
+        = link_to edit_passport_path(passport), remote: true do
+          i.fa.fa-pencil-square-o.padding-right
+        = link_to passport, method: :delete, remote: true, data: { confirm: 'Are you sure?' } do
+          i.fa.fa-trash-o

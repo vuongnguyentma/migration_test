@@ -1,0 +1,21 @@
+p#notice
+  = notice
+p
+  strong
+    | Name:
+  = @passport.name
+p
+  strong
+    | Dob:
+  = @passport.dob
+p
+  strong
+    | Email:
+  = @passport.email
+p
+  strong
+    | Passport:
+  = @passport.passport
+= link_to 'Edit', edit_passport_path(@passport)
+|  | 
+= link_to 'Back', passports_path

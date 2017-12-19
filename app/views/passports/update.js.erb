@@ -1,0 +1,38 @@
+if ('<%= @passport.errors.empty? %>'=='false') {
+    // validation employeeId
+     if('<%= @passport.errors.full_messages_for(:employeeId).empty? %>' == 'false') {
+        $('.errors-employee').text('<%= @passport.errors.full_messages %>'.replace(/&quot;/g, ' '));
+     }
+
+    // validation passport
+    if('<%= @passport.errors.full_messages_for(:passport).empty? %>' == 'false') {
+        $('.errors-passport').text('<%= @passport.errors.full_messages %>'.replace(/&quot;/g, ' '));
+    }
+
+} else {
+
+    var passportId = "passport_<%= @passport.id %>";
+	var inner1 = "<%= @passport.employeeId %>";
+	var inner2 = "<%= @passport.name %>";
+	var inner3 = "<%= @passport.dob %>";
+	var inner4 = "<%= @passport.email %>";
+	var inner5 = "<%= @passport.project %>";
+	var inner6 = "<%= @passport.passport %>";
+	var inner7 = "<%= @passport.issue %>";
+	var inner8 = "<%= @passport.expire %>";
+
+	var update_tr = $('#passport_table').find('tr#'+passportId);
+
+	update_tr.find('td:nth-child(1)').html(inner1);
+	update_tr.find('td:nth-child(2)').html(inner2);
+	update_tr.find('td:nth-child(3)').html(inner3);
+	update_tr.find('td:nth-child(4)').html(inner4);
+	update_tr.find('td:nth-child(5)').html(inner5);
+	update_tr.find('td:nth-child(6)').html(inner6);
+	update_tr.find('td:nth-child(7)').html(inner7);
+	update_tr.find('td:nth-child(8)').html(inner8);
+
+	$('#link_new').show();
+	$('#message-notice').text('Update Successfully').addClass('notice-success').delay(1000).fadeOut(300);;//alert notification
+	$(".modal-contain").hide();
+}

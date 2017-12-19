@@ -1,0 +1,42 @@
+$('.search-form').hide();//advoid loop when enter
+$('#link_search').hide().after("<%= j render 'search' %>");
+
+$('#search_tag').keyup(function(){
+	var searchText = $('#search_tag').val().toLowerCase();
+
+    $.ajax({
+    type:'GET',
+    url:'/',
+    dataType:"json",
+    data: {
+      search: searchText
+    },
+    success:function(data)
+	    {
+	    	$("#content").empty();
+
+            if (data)
+            {
+                $.each(data, function(i, item) {
+                    var html_table = "<tr id='passport_"+item.id+"'>"+
+                    "<td>"+item.employeeId+"</td>" +
+                    "<td>"+item.name+"</td>" +
+                    "<td>"+item.dob+"</td>" +
+                    "<td>"+item.email+"</td>" +
+                    "<td>"+item.project+"</td>" +
+                    "<td>"+item.passport+"</td>" +
+                    "<td>"+item.issue+"</td>" +
+                    "<td>"+item.expire+"</td>" +
+                    "<td class='center-text'>" +
+                        '<a data-remote="true" href="/passports/'+item.id+'/edit"><i class="fa fa-pencil-square-o "></i></a>' +
+                    "<a data-confirm='Are you sure?' data-remote='true' rel='nofollow' data-method='delete' href='/passports/"+item.id+"'><i class='fa fa-trash-o'></td>"+
+                  "</tr>";
+
+                $('#passport_table').prepend(html_table);
+                });
+            }
+	    	
+	    }
+  	});
+
+});

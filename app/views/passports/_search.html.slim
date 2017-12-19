@@ -1,0 +1,4 @@
+h5.title-form
+	div.padding-form
+	  = bootstrap_form_for(sub_search_passports_path, :method => "get", remote: true) do |f|
+	    = f.text_field :name, hide_label: true, class: "fontAwesome", id: "search_tag", placeholder: "Enter  your  text", required: true

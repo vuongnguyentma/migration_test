@@ -1,0 +1,40 @@
+.header-menu
+  .row
+    .col-md-3.col-sm-3.col-xs-3
+      span
+        img.logo src="assets/logo.png"
+    .col-md-6.col-sm-9.col-xs-9
+      h3#title-header
+        = t "passport.title"
+    .col-md-3.col-sm-12.col-xs-12
+      h6.logout
+        = link_to current_user.email, edit_user_registration_path
+        span.paduser
+          | |
+        = link_to destroy_user_session_path, method: :delete do
+          =  t "passport.logout"  
+  .row
+    h6.languages.pull-right
+      = link_to_unless_current "English", locale: "en"
+      span.paduser
+        | |
+      = link_to_unless_current "Vietnamese", locale: "vn" 
+
+.container
+  .bs-docs-section.main-table
+    .row
+      .col-md-12.position-search
+        h3
+          = t "passport.search"
+        .search-form
+          = render 'search'
+
+    .row
+      .col-lg-12
+        .bs-component.passport-table#conta
+            #test
+              = render 'table'
+            div.digg_pagination
+              = will_paginate @passports
+    .row
+  footer

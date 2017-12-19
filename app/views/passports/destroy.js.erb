@@ -1,0 +1,7 @@
+
+if ('<%= @passport.errors.empty? %>'=='false') {
+	$('#message-notice').text('Delete fail').addClass('notice-fail').delay(1000).fadeOut(300);;//alert notification
+} else {
+	$('#passport_<%= @passport.id %>').remove();
+	$('#message-notice').text('Delete Successfully').addClass('notice-success').delay(1000).fadeOut(300);;//alert notification
+}
